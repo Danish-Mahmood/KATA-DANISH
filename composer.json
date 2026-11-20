@@ -1,0 +1,33 @@
+{
+    "name": "tilemountain/php8-kata",
+    "description": "STAC-221 B1.1 PHP 8 kata for JavaScript developers",
+    "type": "project",
+    "license": "proprietary",
+    "require": {
+        "php": "^8.2"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.95",
+        "phpstan/phpstan": "^2.3",
+        "phpunit/phpunit": "^12.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kata\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Kata\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "lint": "php-cs-fixer fix --dry-run --diff",
+        "lint:fix": "php-cs-fixer fix",
+        "analyse": "phpstan analyse"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
