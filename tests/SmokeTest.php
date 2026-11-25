@@ -7,16 +7,16 @@ namespace Tests;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
+use function App\add;
+
 final class SmokeTest extends TestCase
 {
     #[DataProvider('nonIntegers')]
     public function testStrictTypesRejectsNonIntegers(mixed $input): void
     {
-        $add = static fn (int $a, int $b): int => $a + $b;
-
         $this->expectException(\TypeError::class);
 
-        self::assertSame(5, $add($input, 3));
+        self::assertSame(5, add($input, 3));
     }
 
     /** @return iterable<string, array{mixed}> */
