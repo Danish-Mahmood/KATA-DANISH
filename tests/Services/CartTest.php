@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Tests\Services;
 
 use App\Models\Product;
-use App\Payments\PaymentGateway;
 use App\Services\Cart;
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
@@ -38,17 +37,5 @@ final class CartTest extends TestCase
 
         $this->assertTrue($cart->checkout());
         $this->assertSame(2499, $gateway->charged);
-    }
-}
-
-final class FakeGateway implements PaymentGateway
-{
-    public ?int $charged = null;
-
-    public function charge(int $amountInPence): bool
-    {
-        $this->charged = $amountInPence;
-
-        return true;
     }
 }

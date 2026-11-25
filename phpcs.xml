@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<ruleset name="Kata">
+    <description>PSR-12 plus strict_types, checked with PHP_CodeSniffer (same tool as the Magento codebase).</description>
+
+    <file>src</file>
+    <file>tests</file>
+    <file>public</file>
+
+    <arg name="cache" value=".phpcs-cache"/>
+    <arg name="colors"/>
+    <arg value="sp"/>
+
+    <rule ref="PSR12"/>
+    <rule ref="Generic.PHP.RequireStrictTypes"/>
+</ruleset>
